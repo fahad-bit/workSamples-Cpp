@@ -1,0 +1,68 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+
+int main()
+{
+	int person[11];
+	int largest = 0, least = 0, i, largeperson = 0, leastperson = 0, sum = 0, secondlargest = 0, secondlargestperson;
+	cout << "Enter the pancakes for each person\n";
+	for (int i = 1; i <= 10; i++)
+	{
+		cout << "person " << i << endl;
+		cin >> person[i];
+	}
+	for (i = 1; i <= 10; i++)
+	{
+		sum = person[i] + sum;
+	}
+
+
+
+	for (i = 1; i <= 10; i++)
+	{
+		if (person[i] > largest)
+		{
+			largest = person[i];
+			largeperson = i;
+		}
+
+	}
+
+	for (i = 1; i <= 10; i++)
+	{
+		if (person[i] == largest)
+		{
+			secondlargest = largest;
+			secondlargestperson = i;
+		}
+	}
+
+
+	least = person[1];
+	for
+		(i = 1; i <= 10; i++)
+	{
+		if (person[i] <= least)
+		{
+			least = person[i];
+			leastperson = i;
+		}
+	}
+
+	cout << " total pancakes eaten were " << sum << endl;
+	if (secondlargest == largest && largeperson != secondlargestperson)
+	{
+		cout << " Most pancakes eaten were " << largest << " person " << largeperson << " and " << secondlargestperson << " ate them\n";
+	}
+	else
+	{
+		cout << " Most pancakes eaten were " << largest << " person " << largeperson << " ate them\n";
+	}
+	cout << " Least pancakes eaten were " << least << " person " << leastperson << " ate them\n";
+
+	return 0;
+}
