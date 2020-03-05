@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <time.h>
+#include <iomanip>
+using namespace std;
+
+
+
+int main()
+{
+	int a, B;
+	int min = 1, max = 100;
+	char input;
+	srand((unsigned)time(0));
+	cout << setw(10) << "think of a number secretly its my turn to guess it" << endl;
+	a = min + rand() % max;
+	cin >> B;
+	cout << "MY Guess: " << a << endl;
+	do
+	{
+
+		cout << "If the guess is too high enter h else if low enter l " << "\n";
+		cin >> input;
+		if (input == 'l')
+		{
+			min = a;
+			cout << "minimum:" << min << "\n" << "maximum:" << max << endl;
+		}
+		else if (input == 'h')
+		{
+			max = a;
+			cout << "minimum:" << min << "\n" << "maximum:" << max << endl;
+		}
+		else
+		{
+			cout << "enter l or h only " << endl;
+
+		}
+		a = min + rand() % (max - min);
+		cout << "MY Guess: " << a << endl;
+	} while (a != B);
+	cout << "Its correct :)" << endl;
+
+
+	return 0;
+
+}
