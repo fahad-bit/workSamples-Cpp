@@ -1,0 +1,62 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+
+int main()
+{
+	int o, t, h, th;
+	int numtoconvert;
+	cout << "Enter a number between 1 and 3999:\n";
+	cin >> numtoconvert;
+	string thousands[] = { "","M","MM","MMM","MMMM" };
+	string hundred[] = { "","C","CC","CCC","CD","D","DC","DCC","DCCC","CM" };
+	string tens[] = { "","X", "XX","XXX","XL","L","LX","LXX","LXXX","XC" };
+	string ones[] = { "","I","II","III","IV","V","VI","VII","VIII","IX" };
+
+	if (numtoconvert > 0 && numtoconvert < 4000)
+	{
+
+		th = numtoconvert / 1000;
+		numtoconvert = numtoconvert % 1000;
+		h = numtoconvert / 100;
+		numtoconvert = numtoconvert % 100;
+		t = numtoconvert / 10;
+		numtoconvert = numtoconvert % 10;
+		o = numtoconvert;
+
+
+
+
+
+
+
+		cout << " This is " << thousands[th] << hundred[h] << tens[t] << ones[o] << " in roman numbers\n";
+		cout << th << " in the thousands\n";
+		cout << h << " in the hundreds\n";
+		cout << t << " in the Tens\n";
+		cout << o << " in the units\n";
+
+	}
+	else
+	{
+		cout << "Number can't BE BIGGER THEN 4000 OR SMALLER THEN 1\n";
+		main();
+
+	}
+	char y;
+	cout << "\n Wanna play again? Press 'y' for Yes and 'n' for No\n";
+	cin >> y;
+	if ('y' == y)
+	{
+		main();
+	}
+	else
+	{
+		return 0;
+	}
+
+
+}
